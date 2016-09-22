@@ -1,6 +1,9 @@
 ## jQuery Pathner
 A super simple jQuery plugin for Path Partner
 
+### Demo
+https://secure-river-30341.herokuapp.com
+
 ### Register Application
 Link can be found at https://api.path.com/developers/app/new
 
