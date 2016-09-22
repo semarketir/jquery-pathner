@@ -18,12 +18,6 @@ Get the script via one of the methods below, and add it to your page after jQuer
 $ bower install jquery-pathner
 ```
 
-
-#### Include to your HTML
-```sh
-$ bower install jquery-pathner
-```
-
 #### Manual
 Download the [jquery.pathner.js](https://github.com/semarketir/jquery-pathner/raw/master/dist/jquery.pathner.js) file to your project.
 
