@@ -6,19 +6,80 @@
  * - jQuery Popup Window v.1.0.1
  */
 (function($) {
-    var TOKEN_KEY   = 'tkn';
-    var partnerAPI  = 'https://partner.path.com/oauth2/authenticate?response_type=code&client_id=';
-    var blankURL    = 'about:blank';
-    var stylesCode  = "body{padding:0;margin:0}.pathner{font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif}.pathner .pathner-reason{margin:4px 0 0;font-size:13px;font-weight:lighter}.pathner .pathner-icon{height:25px}.pathner .pathner-header{padding:8px;background:#e62f17;color:#fff}.pathner .pathner-left{float:left}.pathner .pathner-right{float:right}.pathner .pathner-both{clear:both}.pathner .pathner-content{padding:10px;background:#fff}.pathner .pathner-content .pathner-component{margin-bottom:2px}.pathner .pathner-content .pathner-component textarea{background:#F8F8F8;color:#999;border:.5px solid #DCDCDC;-webkit-border-radius:2px 2px 2px 2px;border-radius:2px 2px 2px 2px;font-size:13px;width:300px;padding:10px;box-shadow:0 0 .5px #DCDCDC;-webkit-box-shadow:0 0 .5px #DCDCDC;-moz-box-shadow:0 0 .5px #DCDCDC}.pathner .pathner-content .pathner-component img{width:100%;-webkit-border-radius:2px 2px 2px 2px;border-radius:2px 2px 2px 2px;box-shadow:0 0 .5px #DCDCDC;-webkit-box-shadow:0 0 .5px #DCDCDC;-moz-box-shadow:0 0 .5px #DCDCDC;min-height:150px}.pathner .pathner-content .pathner-component h3{padding:0;margin:0;-webkit-font-smoothing:antialiased;font-weight:800;text-shadow:0 0 0 rgba(0,0,0,0)}.pathner .pathner-content .pathner-component p{padding:0;margin:0;font-size:14px;-webkit-font-smoothing:antialiased;font-weight:400;text-shadow:0 0 0 rgba(0,0,0,0)}.pathner .pathner-footer{padding:8px 4px;background:#F8F8F8}.pathner .pathner-footer [class^='pathner-button']{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;width:100%;border:0;padding:10px;text-align:center;-webkit-font-smoothing:antialiased;font-weight:400;text-shadow:0 0 0 rgba(0,0,0,0);-webkit-border-radius:4px;border-radius:4px;color:#fff;font-size:14px;cursor:pointer}.pathner .pathner-footer .pathner-button-disabled{opacity:.7}.pathner .pathner-footer .pathner-button-share{background:#e62f17}.pathner .pathner-footer .pathner-button-share:hover,.pathner .pathner-footer .pathner-button-share:active,.pathner .pathner-footer .pathner-button-share:target{background:#e41f11}.pathner .pathner-footer .pathner-button-cancel{background:#eaeaea;color:#666}.pathner .pathner-footer .pathner-button-cancel:hover,.pathner .pathner-footer .pathner-button-cancel:active,.pathner .pathner-footer .pathner-button-cancel:target{background:#e5e5e5;color:#666}.pathner .pathner-appname{text-align:center;color:#cacaca;font-size:small;-webkit-font-smoothing:antialiased;font-weight:400;text-shadow:0 0 0 rgba(0,0,0,0)}";
+    var SECONDS_IN_ONE_DAY  = 24*60*60;
+    var TOKEN_KEY           = 'tkn';
+    var EXPIRE_KEY          = '_exp';
+    var EXPIRE_TOKN         = TOKEN_KEY + EXPIRE_KEY;
+    var partnerAPI          = 'https://partner.path.com/oauth2/authenticate?response_type=code&client_id=';
+    var blankURL            = 'about:blank';
+    var stylesCode          = "body{padding:0;margin:0}.pathner{font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif}.pathner .pathner-reason{margin:4px 0 0;font-size:13px;font-weight:lighter}.pathner .pathner-icon{height:25px}.pathner .pathner-header{padding:8px;background:#e62f17;color:#fff}.pathner .pathner-left{float:left}.pathner .pathner-right{float:right}.pathner .pathner-both{clear:both}.pathner .pathner-content{padding:10px;background:#fff}.pathner .pathner-content .pathner-component{margin-bottom:2px}.pathner .pathner-content .pathner-component textarea{background:#F8F8F8;color:#999;border:.5px solid #DCDCDC;-webkit-border-radius:2px 2px 2px 2px;border-radius:2px 2px 2px 2px;font-size:13px;width:300px;padding:10px;box-shadow:0 0 .5px #DCDCDC;-webkit-box-shadow:0 0 .5px #DCDCDC;-moz-box-shadow:0 0 .5px #DCDCDC}.pathner .pathner-content .pathner-component img{width:100%;-webkit-border-radius:2px 2px 2px 2px;border-radius:2px 2px 2px 2px;box-shadow:0 0 .5px #DCDCDC;-webkit-box-shadow:0 0 .5px #DCDCDC;-moz-box-shadow:0 0 .5px #DCDCDC;min-height:150px}.pathner .pathner-content .pathner-component h3{padding:0;margin:0;-webkit-font-smoothing:antialiased;font-weight:800;text-shadow:0 0 0 rgba(0,0,0,0)}.pathner .pathner-content .pathner-component p{padding:0;margin:0;font-size:14px;-webkit-font-smoothing:antialiased;font-weight:400;text-shadow:0 0 0 rgba(0,0,0,0)}.pathner .pathner-footer{padding:8px 4px;background:#F8F8F8}.pathner .pathner-footer [class^='pathner-button']{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;width:100%;border:0;padding:10px;text-align:center;-webkit-font-smoothing:antialiased;font-weight:400;text-shadow:0 0 0 rgba(0,0,0,0);-webkit-border-radius:4px;border-radius:4px;color:#fff;font-size:14px;cursor:pointer}.pathner .pathner-footer .pathner-button-disabled{opacity:.7}.pathner .pathner-footer .pathner-button-share{background:#e62f17}.pathner .pathner-footer .pathner-button-share:hover,.pathner .pathner-footer .pathner-button-share:active,.pathner .pathner-footer .pathner-button-share:target{background:#e41f11}.pathner .pathner-footer .pathner-button-cancel{background:#eaeaea;color:#666}.pathner .pathner-footer .pathner-button-cancel:hover,.pathner .pathner-footer .pathner-button-cancel:active,.pathner .pathner-footer .pathner-button-cancel:target{background:#e5e5e5;color:#666}.pathner .pathner-appname{text-align:center;color:#cacaca;font-size:small;-webkit-font-smoothing:antialiased;font-weight:400;text-shadow:0 0 0 rgba(0,0,0,0)}";
 
-    var buildTpl    = function (options) {
-        var appname     = '';
-        var title       = options.data.title,
-            image       = options.data.image,
-            description = options.data.description;
+    var removeStorage = function () {
+        try {
+            localStorage.removeItem(TOKEN_KEY);
+            localStorage.removeItem(EXPIRE_TOKN);
+        } catch (e) {
+            console.log('removeStorage: Error removing key ['+ TOKEN_KEY + '] from localStorage: ' + JSON.stringify(e));
+            return false;
+        }
+        return true;
+    };
+    
+    var getStorage  = function () {
+        var now = Date.now();
+        var expIn = localStorage.getItem(EXPIRE_TOKN);
+        if (expIn===undefined || expIn===null) {
+            expIn = 0;
+        }
+        if (expIn < now) {
+            removeStorage();
+            return null;
+        } else {
+            try {
+                var value = localStorage.getItem(TOKEN_KEY);
+                return value;
+            } catch(e) {
+                console.log('getStorage: Error reading key ['+ TOKEN_KEY + '] from localStorage: ' + JSON.stringify(e));
+                return null;
+            }
+        }
+    };
+    
+    var setStorage = function (value, exp) {
+        if (exp===undefined || exp===null) {
+            exp = SECONDS_IN_ONE_DAY;
+        } else {
+            exp = Math.abs(exp);
+        }
+
+        var now = Date.now();
+        var schedule = now + exp * 1000;
+        try {
+            localStorage.setItem(TOKEN_KEY, value);
+            localStorage.setItem(EXPIRE_TOKN, schedule);
+        } catch(e) {
+            console.log('setStorage: Error setting key ['+ TOKEN_KEY + '] in localStorage: ' + JSON.stringify(e));
+            return false;
+        }
+        return true;
+    };
+    
+    var buildTpl    = function (selfButton, options) {
+        var dataPost;
+        var appname = '';
         if (options.appname) {
             appname = 'via ' + options.appname;
         }
+        if ($.isFunction(options.data)) {
+            dataPost    = options.data(selfButton);
+        } else {
+            dataPost    = options.data;
+        }
+        dataPost        = dataPost || {};
+        var title       = dataPost.title,
+            image       = dataPost.image,
+            description = dataPost.description;
+
         return [
             '<!DOCTYPE html>',
             '<html lang="en">',
@@ -74,7 +135,7 @@
         ].join('');
     };
 
-    var afterWindowPopupShow = function (win, pOpts) {
+    var afterWindowPopupShow = function (selfButton, win, pOpts) {
         var resizeTextarea = function (win) {
             var ta = $(win.document.body).find('textarea');
             ta.width(ta.parent().width() - 22)
@@ -106,7 +167,7 @@
                 url: actionForm,
                 data: data,
                 beforeSend: function(request){
-                    request.setRequestHeader('Authorization', localStorage.getItem(TOKEN_KEY));
+                    request.setRequestHeader('Authorization', getStorage());
                 },
                 error: function(xhr, status, err) {
                     if (pOpts.callback && $.isFunction(pOpts.callback.error)) {
@@ -129,7 +190,7 @@
 
         var doRender = function () {
             var winBody = win.document.body;
-            $(winBody).html(buildTpl(pOpts));
+            $(winBody).html(buildTpl(selfButton, pOpts));
             $(win).resize(function () {
                 resizeTextarea(win);
             });
@@ -144,16 +205,17 @@
         });
     };
 
-    var openWindowPopup = function(pOpts, wOpts) {
-        afterWindowPopupShow($.popupWindow(blankURL, wOpts), pOpts);
+    var openWindowPopup = function(selfButton, pOpts, wOpts) {
+        afterWindowPopupShow(selfButton, $.popupWindow(blankURL, wOpts), pOpts);
     };
 
     $.fn.pathPartner = function(pOpts, wOpts) {
         var pOpts = pOpts || {};
         return this.each( function() {
             $(this).on('click', function () {
-                if (localStorage.getItem(TOKEN_KEY)) {
-                    openWindowPopup(pOpts, wOpts);
+                var self = this;
+                if (getStorage()) {
+                    openWindowPopup(self, pOpts, wOpts);
                     return;
                 }
                 var winAuth = $.popupWindow(partnerAPI + pOpts.clientId, wOpts);
@@ -172,9 +234,9 @@
                                 winAuth.self.close();
                             }
                             clearInterval(checkUrl);
-                            localStorage.setItem(TOKEN_KEY, data.token);
+                            setStorage(data.token);
                             winAuth.location.replace(blankURL);
-                            afterWindowPopupShow(winAuth, pOpts);
+                            afterWindowPopupShow(self, winAuth, pOpts);
                         } catch (Exception) {}
                     }, 1000);
                 });

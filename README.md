@@ -31,18 +31,24 @@ $('button').pathPartner(options, [jqueryPopupWindowOption]);
 ```
 See https://github.com/mkdynamic/jquery-popupwindow for more details of jQuery Popup Window
 
-#### Example
+#### Example 1 - set data with function
+```html
+<button data-url="http://.." data-title="title 1" data-image="http://cdn.image..." data-description="description 1">Share</button>
+```
 ```js
 $('button').pathPartner({
     clientId: '<client-id>', // insert your client id in here
     appname: '<your-appname>', // insert your app name in here
     action: '/post-moment', // url for post moment on server
     method: 'post', // let's set post as a method
-    data: {
-        url: 'http://megapolitan.kompas.com/read/2016/09/23/00004351/tak.ikut.poros.cikeas.gerindra-pks.sepakat.usung.cagub.dan.cawagub.dki',
-        image: 'http://assets.kompas.com/data/photo/2016/09/14/1337126sandiaga780x390.jpg',
-        title: 'Tak Ikut Poros Cikeas, Gerindra-PKS Sepakat Usung Cagub dan Cawagub DKI',
-        description: 'Gerindra dan PKS memutuskan tak akan bergabung dengan poros Cikeas.'
+    data: function(self) {
+        // self is button object from jquery
+        return {
+           url: $(self).data('url'),
+           image: $(self).data('image'),
+           title: $(self).data('title'),
+           description: $(self).data('description')
+       };
     },
     
     // callback is optional
@@ -54,6 +60,22 @@ $('button').pathPartner({
         error: function (xhr, status, err) {
             console.error(status, err.toString());
         }
+    }
+});
+```
+
+#### Example 2 - set data with object
+```js
+$('button').pathPartner({
+    clientId: '<client-id>', // insert your client id in here
+    appname: '<your-appname>', // insert your app name in here
+    action: '/post-moment', // url for post moment on server
+    method: 'post', // let's set post as a method
+    data: {
+        url: 'http://megapolitan.kompas.com/read/2016/09/23/00004351/tak.ikut.poros.cikeas.gerindra-pks.sepakat.usung.cagub.dan.cawagub.dki',
+        image: 'http://assets.kompas.com/data/photo/2016/09/14/1337126sandiaga780x390.jpg',
+        title: 'Tak Ikut Poros Cikeas, Gerindra-PKS Sepakat Usung Cagub dan Cawagub DKI',
+        description: 'Gerindra dan PKS memutuskan tak akan bergabung dengan poros Cikeas.'
     }
 });
 ```
