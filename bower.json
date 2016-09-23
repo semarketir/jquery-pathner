@@ -1,6 +1,6 @@
 {
   "name": "jquery-pathner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/jquery.pathner.js",
   "description": "Simple jQuery plugin for Path Partner",
   "dependencies" : {

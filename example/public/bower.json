@@ -1,6 +1,6 @@
 {
   "name": "example",
   "dependencies" : {
-    "jquery-pathner" : "1.0.0"
+    "jquery-pathner" : "1.0.1"
   }
 }
