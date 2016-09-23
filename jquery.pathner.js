@@ -24,7 +24,7 @@
         }
         return true;
     };
-    
+
     var getStorage  = function () {
         var now = Date.now();
         var expIn = localStorage.getItem(EXPIRE_TOKN);
@@ -44,7 +44,7 @@
             }
         }
     };
-    
+
     var setStorage = function (value, exp) {
         if (exp===undefined || exp===null) {
             exp = SECONDS_IN_ONE_DAY;
@@ -63,7 +63,7 @@
         }
         return true;
     };
-    
+
     var buildTpl    = function (selfButton, options) {
         var dataPost;
         var appname = '';
@@ -83,54 +83,54 @@
         return [
             '<!DOCTYPE html>',
             '<html lang="en">',
-                '<head>',
-                    '<meta name="viewport" content="minimal-ui; initial-scale=1.0; maximum-scale=1.0; user-scalable=no; width=320">',
-                    '<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">',
-                    '<meta charset="utf-8">',
-                    '<style>', stylesCode, '</style>',
+            '<head>',
+            '<meta name="viewport" content="minimal-ui; initial-scale=1.0; maximum-scale=1.0; user-scalable=no; width=320">',
+            '<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">',
+            '<meta charset="utf-8">',
+            '<style>', stylesCode, '</style>',
             '</head>',
-                '<body>',
-                    '<div class="pathner">',
-                        '<div class="pathner-header">',
-                            '<div class="pathner-left">',
-                                '<img class="pathner-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7m5rvAAAB4FBMVEX////////////////iEwfiFAjiFQniFwvjGAzjGQ3jGQ7jHBHjHRLjHxTkIBXkIRbkIhfkIxjkJRnkJhrkJhvlJxzlKR7lKyDlLSLlLyTmMifmMijmMynmNCrmNSvmNizmNy3nOzHnPDLnPTPnPzboQDfoQTjoQzroRTzoRjzpST/pSkDpS0HpS0LpTEPqUEfqU0rqVEvqVUzqVk3rWFDrWVHrWlLrW1PrXFTrXVXrX1fsYVnsZFzsZF3sZV7sZ2DtamLta2PtbGTucWrucmvudm/venPvfHXvfXfwgnzwg33whH7whX/whoDwh4HwiYPxiYPxioTxjIbxjojxkIrxkYvyk43ylI7ylZDylpHyl5LymZTzmpXznJfznpnzn5rzoJvzoZz0op70paH0pqL0p6P0qKT0qaX1qqb1q6b1raj1rqn1r6v1sKz2sq72tbH2t7P3u7f3vLn3vrv3wb73wr/4xcL4xsP4x8T4x8X4yMb4ycf5ysj5z8z50M3609D61dP61tT619X62df62tj729n73Nr73tz739374N/74eD74uH85OP85+b86Of86un86+r97Ov97e397+798vH+8/L+9PP+9fT+9vX++Pf++fj++fn//Pz//f3//v7///8K5UXTAAAABHRSTlMAh8LDrEhNWQAAAiVJREFUeAHV1utXTFEYx/GpeRRDaSjkHpJk5MIYEalxz10uUYoml0R0QeMiFaYLQ0y51O9fdWY9e7az9jlnZs95xffVzG/tzzpr7VfbY5TjRTZ5czzJcpFtuclvIfuM73ldMK/HAzf9v2z65e2TdXsDVbsOHmt+OqnHEm3BJWQqv/LscEYWP11M1moG0rNIIdlXG0/D6smxwm5HtpPSdc2BHSLZvG2Ndx73dF4OLTO5Flt2l1KVNo1D9LP3CMme2bAZH4kafsHcaDWJls5aWSOJOqB2jkQXrKyEuHsApt5Go29i36W7RFzRrMpeERcG8NXPdz4oXYC4fpVd570YRp+IeyLZRB4vp1TWwPsZGMUX8J8+yEK87FfZPt5fOLA2XtaprIr3cQfWy4vfgY05sH5eylUWNF3V5/kWFuHlsMrCf+8fX3wWVsPLVZW18J73AcDUQpW9I+6jykaIK5sDpov49wBEM6U8VEJlWEvJFvUA+L2cTw2BG1xP3Gsr6yQj/yiSreJT1Q9GviVi3UESHYeVoYIoMMk/yyhVwWKSbYcdG9vcBNEmsqkCVsalY/XIyMpJbXUHMrMNfDafRFsic9BgK/n0nufNJ8JHL3a9B5eB/ShgthsyHTZB3A5tNnQfwE3i6rTZQ9rY2uoj7oo2e0SmhrXZLZPaCm12w8Ri+qyPZO3QZzhAXEkXsmGIng+tWFPbnviHnjMuX3gu35MuX6/u38pu+gOiwQ99UZw9YwAAAABJRU5ErkJggg==">',
-                            '</div>',
-                            '<div class="pathner-right">',
-                                '<h4 class="pathner-reason">Post to <strong>Path</strong></h4>',
-                            '</div>',
-                            '<div class="pathner-both"></div>',
-                        '</div>',
-                        '<div class="pathner-content">',
-                            '<div class="pathner-component">',
-                                '<textarea name="caption" placeholder="Leave a note..."></textarea>',
-                            '</div>',
-                            '<div class="pathner-component">',
-                                '<h3>' + title + '</h3>',
-                            '</div>',
-                            '<div class="pathner-component">',
-                                '<p>' + description + '</p>',
-                            '</div>',
-                            '<div class="pathner-component">',
-                                '<img src="' + image + '" />',
-                            '</div>',
-                        '</div>',
-                        '<div class="pathner-footer">',
-                            '<div class="pathner-left">',
-                                '<p id="loading" class="pathner-reason" style="display: none;margin-left: 10px; margin-top: 10px;">Please wait...</p>',
-                            '</div>',
-                            '<div class="pathner-right">',
-                                '<button class="pathner-button pathner-button-share">Share</button>',
-                            '</div>',
-                            '<div class="pathner-right" style="margin-right: 2px;">',
-                                '<button class="pathner-button pathner-button-cancel" onclick="self.close();">Cancel</button>',
-                            '</div>',
-                            '<div class="pathner-both"></div>',
-                        '</div>',
-                        '<div class="pathner-appname">',
-                            '<p>' + appname + '</p>',
-                        '</div>',
-                    '</div>',
-                '</body>',
+            '<body>',
+            '<div class="pathner">',
+            '<div class="pathner-header">',
+            '<div class="pathner-left">',
+            '<img class="pathner-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7m5rvAAAB4FBMVEX////////////////iEwfiFAjiFQniFwvjGAzjGQ3jGQ7jHBHjHRLjHxTkIBXkIRbkIhfkIxjkJRnkJhrkJhvlJxzlKR7lKyDlLSLlLyTmMifmMijmMynmNCrmNSvmNizmNy3nOzHnPDLnPTPnPzboQDfoQTjoQzroRTzoRjzpST/pSkDpS0HpS0LpTEPqUEfqU0rqVEvqVUzqVk3rWFDrWVHrWlLrW1PrXFTrXVXrX1fsYVnsZFzsZF3sZV7sZ2DtamLta2PtbGTucWrucmvudm/venPvfHXvfXfwgnzwg33whH7whX/whoDwh4HwiYPxiYPxioTxjIbxjojxkIrxkYvyk43ylI7ylZDylpHyl5LymZTzmpXznJfznpnzn5rzoJvzoZz0op70paH0pqL0p6P0qKT0qaX1qqb1q6b1raj1rqn1r6v1sKz2sq72tbH2t7P3u7f3vLn3vrv3wb73wr/4xcL4xsP4x8T4x8X4yMb4ycf5ysj5z8z50M3609D61dP61tT619X62df62tj729n73Nr73tz739374N/74eD74uH85OP85+b86Of86un86+r97Ov97e397+798vH+8/L+9PP+9fT+9vX++Pf++fj++fn//Pz//f3//v7///8K5UXTAAAABHRSTlMAh8LDrEhNWQAAAiVJREFUeAHV1utXTFEYx/GpeRRDaSjkHpJk5MIYEalxz10uUYoml0R0QeMiFaYLQ0y51O9fdWY9e7az9jlnZs95xffVzG/tzzpr7VfbY5TjRTZ5czzJcpFtuclvIfuM73ldMK/HAzf9v2z65e2TdXsDVbsOHmt+OqnHEm3BJWQqv/LscEYWP11M1moG0rNIIdlXG0/D6smxwm5HtpPSdc2BHSLZvG2Ndx73dF4OLTO5Flt2l1KVNo1D9LP3CMme2bAZH4kafsHcaDWJls5aWSOJOqB2jkQXrKyEuHsApt5Go29i36W7RFzRrMpeERcG8NXPdz4oXYC4fpVd570YRp+IeyLZRB4vp1TWwPsZGMUX8J8+yEK87FfZPt5fOLA2XtaprIr3cQfWy4vfgY05sH5eylUWNF3V5/kWFuHlsMrCf+8fX3wWVsPLVZW18J73AcDUQpW9I+6jykaIK5sDpov49wBEM6U8VEJlWEvJFvUA+L2cTw2BG1xP3Gsr6yQj/yiSreJT1Q9GviVi3UESHYeVoYIoMMk/yyhVwWKSbYcdG9vcBNEmsqkCVsalY/XIyMpJbXUHMrMNfDafRFsic9BgK/n0nufNJ8JHL3a9B5eB/ShgthsyHTZB3A5tNnQfwE3i6rTZQ9rY2uoj7oo2e0SmhrXZLZPaCm12w8Ri+qyPZO3QZzhAXEkXsmGIng+tWFPbnviHnjMuX3gu35MuX6/u38pu+gOiwQ99UZw9YwAAAABJRU5ErkJggg==">',
+            '</div>',
+            '<div class="pathner-right">',
+            '<h4 class="pathner-reason">Post to <strong>Path</strong></h4>',
+            '</div>',
+            '<div class="pathner-both"></div>',
+            '</div>',
+            '<div class="pathner-content">',
+            '<div class="pathner-component">',
+            '<textarea name="caption" placeholder="Leave a note..."></textarea>',
+            '</div>',
+            '<div class="pathner-component">',
+            '<h3>' + title + '</h3>',
+            '</div>',
+            '<div class="pathner-component">',
+            '<p>' + description + '</p>',
+            '</div>',
+            '<div class="pathner-component">',
+            '<img src="' + image + '" />',
+            '</div>',
+            '</div>',
+            '<div class="pathner-footer">',
+            '<div class="pathner-left">',
+            '<p id="loading" class="pathner-reason" style="display: none;margin-left: 10px; margin-top: 10px;">Please wait...</p>',
+            '</div>',
+            '<div class="pathner-right">',
+            '<button class="pathner-button pathner-button-share">Share</button>',
+            '</div>',
+            '<div class="pathner-right" style="margin-right: 2px;">',
+            '<button class="pathner-button pathner-button-cancel" onclick="self.close();">Cancel</button>',
+            '</div>',
+            '<div class="pathner-both"></div>',
+            '</div>',
+            '<div class="pathner-appname">',
+            '<p>' + appname + '</p>',
+            '</div>',
+            '</div>',
+            '</body>',
             '<html>'
         ].join('');
     };
@@ -155,12 +155,19 @@
             showLoading(winBody, true);
             var actionForm  = pOpts.action,
                 methodForm  = pOpts.method;
+
+            var dataPost;
+            if ($.isFunction(pOpts.data)) {
+                dataPost    = pOpts.data(selfButton);
+            } else {
+                dataPost    = pOpts.data;
+            }
             var data = {
                 caption: $(winBody).find('textarea').val(),
-                title: pOpts.data.title,
-                image: pOpts.data.image,
-                url: pOpts.data.url,
-                description: pOpts.data.description
+                title: dataPost.title,
+                image: dataPost.image,
+                url: dataPost.url,
+                description: dataPost.description
             };
             $.ajax({
                 type: methodForm,
