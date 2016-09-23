@@ -3,6 +3,7 @@ A super simple jQuery plugin for Path Partner
 
 ### Demo
 https://secure-river-30341.herokuapp.com
+
 Source code: https://github.com/semarketir/jquery-pathner-nodejs-server-demo
 
 ### Register Application
