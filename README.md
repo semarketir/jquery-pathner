@@ -84,7 +84,7 @@ $('button').pathPartner({
 ```
 
 #### Server side example
-Can be found at [example folder](https://github.com/semarketir/jquery-pathner/tree/master/example).
+Can be found at [example folder](https://github.com/semarketir/jquery-pathner/tree/master/example) or https://github.com/semarketir/jquery-pathner-nodejs-server-demo
 
 ### LINCESE
 WTFPL
