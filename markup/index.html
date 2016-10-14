@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Pathner</title>
+    <meta content="minimal-ui; initial-scale=1.0; maximum-scale=1.0; user-scalable=no; width=320" name="viewport">
+    <meta content="IE=Edge;chrome=1" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" />
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+<ul>
+    <li><a href="landscape.html">Landscape</a></li>
+    <li><a href="portrait.html">Portrait</a></li>
+    <li><a href="square.html">Square</a></li>
+</ul>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post to Path</title>
+    <meta content="minimal-ui; initial-scale=1.0; maximum-scale=1.0; user-scalable=no; width=320" name="viewport">
+    <meta content="IE=Edge;chrome=1" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <style></style>
+</head>
+<body>
+<div class="pathner">
+    <div class="pathner-header">
+        <img class="pathner-icon" src= "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAMAAAC7m5rvAAAB4FBMVEX////////////////iEwfiFAjiFQniFwvjGAzjGQ3jGQ7jHBHjHRLjHxTkIBXkIRbkIhfkIxjkJRnkJhrkJhvlJxzlKR7lKyDlLSLlLyTmMifmMijmMynmNCrmNSvmNizmNy3nOzHnPDLnPTPnPzboQDfoQTjoQzroRTzoRjzpST/pSkDpS0HpS0LpTEPqUEfqU0rqVEvqVUzqVk3rWFDrWVHrWlLrW1PrXFTrXVXrX1fsYVnsZFzsZF3sZV7sZ2DtamLta2PtbGTucWrucmvudm/venPvfHXvfXfwgnzwg33whH7whX/whoDwh4HwiYPxiYPxioTxjIbxjojxkIrxkYvyk43ylI7ylZDylpHyl5LymZTzmpXznJfznpnzn5rzoJvzoZz0op70paH0pqL0p6P0qKT0qaX1qqb1q6b1raj1rqn1r6v1sKz2sq72tbH2t7P3u7f3vLn3vrv3wb73wr/4xcL4xsP4x8T4x8X4yMb4ycf5ysj5z8z50M3609D61dP61tT619X62df62tj729n73Nr73tz739374N/74eD74uH85OP85+b86Of86un86+r97Ov97e397+798vH+8/L+9PP+9fT+9vX++Pf++fj++fn//Pz//f3//v7///8K5UXTAAAABHRSTlMAh8LDrEhNWQAAAiVJREFUeAHV1utXTFEYx/GpeRRDaSjkHpJk5MIYEalxz10uUYoml0R0QeMiFaYLQ0y51O9fdWY9e7az9jlnZs95xffVzG/tzzpr7VfbY5TjRTZ5czzJcpFtuclvIfuM73ldMK/HAzf9v2z65e2TdXsDVbsOHmt+OqnHEm3BJWQqv/LscEYWP11M1moG0rNIIdlXG0/D6smxwm5HtpPSdc2BHSLZvG2Ndx73dF4OLTO5Flt2l1KVNo1D9LP3CMme2bAZH4kafsHcaDWJls5aWSOJOqB2jkQXrKyEuHsApt5Go29i36W7RFzRrMpeERcG8NXPdz4oXYC4fpVd570YRp+IeyLZRB4vp1TWwPsZGMUX8J8+yEK87FfZPt5fOLA2XtaprIr3cQfWy4vfgY05sH5eylUWNF3V5/kWFuHlsMrCf+8fX3wWVsPLVZW18J73AcDUQpW9I+6jykaIK5sDpov49wBEM6U8VEJlWEvJFvUA+L2cTw2BG1xP3Gsr6yQj/yiSreJT1Q9GviVi3UESHYeVoYIoMMk/yyhVwWKSbYcdG9vcBNEmsqkCVsalY/XIyMpJbXUHMrMNfDafRFsic9BgK/n0nufNJ8JHL3a9B5eB/ShgthsyHTZB3A5tNnQfwE3i6rTZQ9rY2uoj7oo2e0SmhrXZLZPaCm12w8Ri+qyPZO3QZzhAXEkXsmGIng+tWFPbnviHnjMuX3gu35MuX6/u38pu+gOiwQ99UZw9YwAAAABJRU5ErkJggg==" />
+        <span>Post to <strong>Path</strong></span>
+    </div>
+    <div class="pathner-body">
+        <div class="pathner-input-area">
+            <textarea placeholder="Leave a note..."></textarea>
+        </div>
+        <div class="pathner-preview-box">
+            <div class="pathner-preview-box-media">
+                <img src="' + image + '" />
+            </div>
+            <div class="pathner-preview-box-caption">
+                <h4>' + title + '</h4>
+                <p>' + description + '</p>
+            </div>
+        </div>
+        <div class="pathner-share-area">
+            <button id="pathner-share-area-btn">' + readyButton + '</button>
+        </div>
+    </div>
+    <div class="pathner-footer">
+        <p>' + appname + '</p>
+    </div>
+</div>
+</body>
+</html>

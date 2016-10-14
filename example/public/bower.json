@@ -1,6 +1,0 @@
-{
-  "name": "example",
-  "dependencies" : {
-    "jquery-pathner" : "1.0.2"
-  }
-}

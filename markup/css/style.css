@@ -1,0 +1,135 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.pathner {
+    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica,Arial, 'Lucida Grande', sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.pathner-body {
+    background: #ffffff;
+}
+
+.pathner-header {
+    background: #e4322e;
+    color: #ffffff;
+    padding: 8px;
+}
+
+.pathner-header > img {
+    height: 25px;
+    width: 25px;
+    margin-left: 2px;
+}
+
+.pathner-header > span {
+    font-weight: 500;
+    font-size: small;
+    position: absolute;
+    top: 13px;
+    left: 40px;
+    clear: both;
+    -webkit-font-smoothing: antialiased;
+}
+
+.pathner-input-area {
+    padding: 10px;
+}
+
+.pathner-input-area > textarea {
+    background: #f0f0f0;
+    color: #333333;
+    margin: 0;
+    padding: 8px;
+    border: 1px solid #C8C8C8;
+    resize: none;
+    width: 100%;
+    height: 50px;
+    font-weight: 200;
+    font-size: small;
+}
+
+.pathner-preview-box {
+    padding: 10px;
+    padding-top: 0;
+}
+
+.pathner-preview-box-media {
+    padding: 0;
+    margin: 0;
+}
+
+.pathner-preview-box-media > img {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.pathner-preview-box-caption {
+    border: 1px solid #C8C8C8;
+    padding: 10px;
+    margin: 0;
+    margin-top: -5px;
+}
+
+.pathner-preview-box-caption > h4 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+}
+
+.pathner-preview-box-caption > p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 4px;
+    font-weight: 200;
+    font-size: small;
+    text-align: justify;
+    color: #494949;
+    -webkit-font-smoothing: antialiased;
+}
+
+.pathner-share-area {
+    padding: 10px;
+    padding-top: 0;
+}
+
+.pathner-share-area > button {
+    background: #61b23d;
+    color: #f2f8f0;
+    margin-top: 0;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    font-weight: 400;
+    font-size: 14px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    border-radius: 2px 2px 2px 2px;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+}
+
+.pathner-share-area > button:active, .pathner-share-area > button:target {
+    background: #448229;
+}
+
+.pathner-footer {
+    padding: 10px;
+    text-align: center;
+}
+
+.pathner-footer > p{
+    color: #afafaf;
+    font-size: small;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
