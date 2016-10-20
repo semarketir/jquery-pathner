@@ -1,0 +1,65 @@
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0}
+fieldset,img{border:0 none}
+dl,ul,ol,menu,li{list-style:none}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after,q:before, q:after{content:'';content:none}
+input,select,textarea,button{vertical-align:middle;font-size:100%}
+button{border:0 none;background-color:transparent;cursor:pointer}
+table{border-collapse:collapse;border-spacing:0}
+body{-webkit-text-size-adjust:none} /* 뷰포트 변환시 폰트크기 자동확대 방지. */
+input:checked[type='checkbox']{background-color:#666; -webkit-appearance:checkbox}
+input[type='text'],input[type='password'],input[type='submit'],input[type='search'],input[type='tel'],input[type='email'],html input[type='button'],input[type='reset']{-webkit-appearance:none;border-radius:0}
+input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+ 
+body{background:#fff}
+body,th,td,input,select,textarea,button{font-size:14px;line-height:1.5;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;color:#333} /* color값은 디자인가이드에 맞게사용 */
+ 
+a{color:#333;text-decoration:none}
+a:active, a:hover{text-decoration:none}
+address,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}
+
+/* global */
+#kakaoIndex{overflow:hidden;position:absolute;left:-9999px;width:0;height:1px;margin:0;padding:0} /* 스킵네비게이션 */
+.ir_pm{display:block;overflow:hidden;font-size:0px;line-height:0;text-indent:-9999px} /* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+.ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%} /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
+.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+.show{display:block}
+.hide{display:none}
+
+/* post */
+.post_path{width:100%;max-width:600px;margin:0 auto}
+.head_post{position:absolute;left:0;top:0;width:100%;height:47px;background:#e72f25}
+.head_post h1{overflow:hidden;height:100%;padding-left:9px;font-weight:normal;font-size:14px;line-height:46px;color:#fff}
+.head_post .ico_post{float:left;width:26px;height:26px;margin:10px 7px 0 0;background:url(../images/m320/ico_post.png) no-repeat 0 0}
+.post_path .txt_path{font-weight:bold}
+
+.main_post{padding:47px 10px 0}
+.wrap_post{margin-top:14px;padding:6px 8px 10px;border:1px solid #d2d2d2;border-radius:2px;background:#f0f0f0;line-height:16px}
+.wrap_post .txt_desc{display:block;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:3;-webkit-box-orient:vertical;word-wrap:break-word}
+.box_post{margin-top:14px}
+.thumb_post{width:100%;height:100%}
+.thumb_post .img_post{display:block;width:100%;height:auto}
+.info_post{padding:11px 10px;border:1px solid #d2d2d2;border-radius:3px}
+.thumb_post + .info_post{margin-top:-3px;padding:15px 8px 14px}
+.info_post .cont_post{display:table;overflow:hidden;height:100%}
+.info_post .desc_post{display:table-cell;vertical-align:middle}
+.info_post .tit_post{display:block;display:-webkit-box;overflow:hidden;font-weight:bold;font-size:16px;line-height:16px;;text-overflow:ellipsis;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-wrap:break-word}
+.info_post .txt_post{display:block;display:-webkit-box;overflow:hidden;margin-top:4px;font-size:14px;line-height:16px;text-overflow:ellipsis;-webkit-line-clamp:3;-webkit-box-orient:vertical;word-wrap:break-word}
+.btn_share{display:block;width:100%;height:42px;margin-top:17px;font-size:15px;line-height:40px;border-radius:3px;background:#5fb336;color:#fff}
+.foot_post{margin:14px 0 30px;text-align:center}
+.foot_post .link_foot{font-size:13px;color:#999}
+
+.small .box_post{overflow:hidden;height:111px;border:1px solid #d2d2d2;border-radius:3px}
+.small .thumb_post{float:left;width:111px;height:111px}
+.small .info_post{overflow:hidden;height:81px;margin-top:0;padding:13px 9px;border:0 none}
+.small .info_post .tit_post{font-size:15px}
+.small .info_post .txt_post{margin-top:4px;font-size:13px;line-height:15px}
+.small .btn_share{margin-top:15px}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5) ,
+only screen and (min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx) {
+	.head_post .ico_post{background-image:url(../images/m640/ico_post.png);-webkit-background-size:26px 26px;background-size:26px 26px}
+}

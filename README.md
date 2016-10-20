@@ -8,7 +8,7 @@ Source code: https://github.com/semarketir/jquery-pathner-nodejs-server-demo
 
 
 ### Markups / Templates
-Can be found at [markup's folder](https://github.com/semarketir/jquery-pathner/tree/master/markup)
+Can be found at [markup's folder](https://github.com/semarketir/jquery-pathner/tree/master/markups)
 
 ### Register Application
 Link can be found at https://api.path.com/developers/app/new
